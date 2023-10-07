@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EyeMovement</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" onmousemove="move(event)" >
+        <div class="eyes">
+            <div class="pupil"></div>
+        </div>
+        <div class="eyes">
+            <div class="pupil"></div>
+        </div>
+    </div>
+
+
+    <script>
+        const pupil=document.getElementsByClassName('pupil')
+        document.onmousemove=(event)=>{
+            const x=event.clientX * 100 / window.innerWidth + "%"
+            const y=event.clientY * 100 / window.innerWidth + "%"
+
+            for(let i=0;i<2;i++){
+                pupil[i].style.left=x
+                pupil[i].style.top=y
+                
+
+                pupil[i].style.transform=`translate( -${x},-${y})`
+
+            }
+
+        }
+    </script>
+</body>
+</html>
